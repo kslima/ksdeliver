@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const mapboxToken = ''
+const mapboxToken = process.env.REACT_APP_ACCESS_TOKEN_MAP_BOX
 
 const API_URL = 'http://localhost:8080'
 
