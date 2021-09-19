@@ -3,6 +3,8 @@ package com.kslima.ksdeliver.dto;
 import com.kslima.ksdeliver.entities.Order;
 import com.kslima.ksdeliver.entities.OrderStatus;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +13,13 @@ import java.util.stream.Collectors;
 public class OrderDTO {
 
     private Long id;
+
+    @NotBlank(message = "O endereço deve ser informado!")
+    @NotNull(message = "O endereço deve ser informado!")
     private String address;
+    @NotNull(message = "Latidude deve ser informada!")
     private Double latitude;
+    @NotNull(message = "Longitude deve ser informada!")
     private Double longitude;
     private Instant moment;
     private OrderStatus status;
