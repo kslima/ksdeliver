@@ -39,6 +39,16 @@ function Orders() {
     }
 
     const handleSubmit = () => {
+        if (selectedProducts.length === 0 ) {
+            toast.info('Selecione ao menos um produto!');
+            return;
+        }
+
+        if (orderLocation?.address === null ) {
+            toast.info('Informe um endereço!');
+            return;
+        }
+        
         const productsIds = selectedProducts.map(({ id }) => ({ id }));
         const payload = {
             ...orderLocation!,
@@ -50,8 +60,8 @@ function Orders() {
                 toast.success(`Pedido enviado com sucesso! Nº ${response.data.id}`);
                 setSelectedProducts([]);
             })
-            .catch(() => {
-                toast.warning('Erro ao enviar pedido');
+            .catch((error) => {
+                toast.warning('Erro ao enviar pedido!');
             })
     }
 
