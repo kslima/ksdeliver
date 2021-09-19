@@ -2,11 +2,10 @@ function StepsHeader() {
     return (
         <header className="orders-steps-container">
             <div className="orders-steps-content">
-                <div className="steps-title">
+                <h1 className="steps-title">
                     SIGA AS<br />ETAPAS
-                </div>
-            </div>
-            <ul className="steps-items">
+                </h1>
+                <ul className="steps-items">
                 <li>
                     <span className="steps-number">1</span>
                     Selecione os produtos e localização
@@ -16,6 +15,8 @@ function StepsHeader() {
                     Depois clique em <strong>"ENVIAR PEDIDO"</strong>
                 </li>
             </ul>
+            </div>
+            
         </header>
     )
 }
