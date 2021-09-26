@@ -1,16 +1,16 @@
-package com.kslima.ksdeliver.controllers;
+package com.kslima.ksdeliver.controllers.exceptions;
 
 import java.time.Instant;
 
-public class StandardError {
+public abstract class RequestError {
 
     private Instant timestamp;
     private Integer status;
-    private String error;
     private String message;
     private String path;
 
-    public StandardError() {
+    public RequestError() {
+
     }
 
     public Instant getTimestamp() {
@@ -27,14 +27,6 @@ public class StandardError {
 
     public void setStatus(Integer status) {
         this.status = status;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
     }
 
     public String getMessage() {

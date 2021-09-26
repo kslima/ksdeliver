@@ -14,12 +14,12 @@ public class OrderDTO {
 
     private Long id;
 
-    @NotBlank(message = "O endereço deve ser informado!")
-    @NotNull(message = "O endereço deve ser informado!")
+    @NotBlank(message = "Endereço inválido!")
+    @NotNull(message = "Endereço inválido!")
     private String address;
-    @NotNull(message = "Latidude deve ser informada!")
+    @NotNull(message = "Latidude inválida!")
     private Double latitude;
-    @NotNull(message = "Longitude deve ser informada!")
+    @NotNull(message = "Longitude inválida!")
     private Double longitude;
     private Instant moment;
     private OrderStatus status;
