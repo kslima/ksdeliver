@@ -1,36 +1,26 @@
 package com.kslima.ksdeliver;
 
-import com.kslima.ksdeliver.dto.OrderDTO;
-import com.kslima.ksdeliver.services.exceptions.ValidateException;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-import java.util.Set;
-
-@SpringBootTest
+@ExtendWith(SpringExtension.class)
 class KsdeliverApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void list() {
+		List<Double> doubles = new ArrayList<>();
+		doubles.add(20.5);
+		doubles.add(10.0);
+		doubles.add(20.5);
 
-		OrderDTO dto = new OrderDTO();
+		double sum  = doubles.stream()
+						.reduce(0.0, Double::sum);
 
-		validate(dto);
-	}
-
-	public static void validate(OrderDTO dto) {
-		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-		Validator validator = factory.getValidator();
-
-		Set<ConstraintViolation<OrderDTO>> violations = validator.validate(dto);
-		if (!violations.isEmpty()) {
-			violations.forEach(v -> System.out.println(v.getMessage()));
-			throw new ValidateException("Erro de validacao");
-		}
+		Assertions.assertEquals(51, sum);
 	}
 
 }

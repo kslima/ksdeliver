@@ -97,6 +97,12 @@ public class Order implements Serializable {
         return products;
     }
 
+    public Double getTotal() {
+        return products.stream()
+                .mapToDouble(Product::getPrice)
+                .sum();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
